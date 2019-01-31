@@ -11,7 +11,10 @@
   - @up_file.files.each do |file|
     %li
       = file.filename
-      = image_tag(file.variant(resize: "100x100"))
+      - if file.image?
+        = image_tag file.variant(resize: "100x100")
+      - elsif file.audio?
+        = audio_tag rails_blob_url(file), controls: true
 
 %p ダウンロード
 = form_with url: download_up_file_path(@up_file), local: true do |f|

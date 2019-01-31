@@ -12,7 +12,7 @@
   .field
     = f.label :files, 'ファイル'
     %br/
-    = f.file_field :files, multiple: true
+    = f.file_field :files, multiple: true, direct_upload: true
 
   .field
     = f.label :password, 'パスワード'
