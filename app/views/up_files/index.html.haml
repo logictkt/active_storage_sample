@@ -1,0 +1,5 @@
+%h1 一覧
+
+%ul
+  - @up_files.each do |up_file|
+    %li= link_to up_file.name, up_file_path(up_file)

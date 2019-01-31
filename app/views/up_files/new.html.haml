@@ -1,0 +1,28 @@
+- if @up_file.errors.present?
+  %ul
+    - @up_file.errors.full_messages.each do |message|
+      %li= message
+
+= form_with model: @up_file, local: true do |f|
+  .field
+    = f.label :name, '管理名'
+    %br/
+    = f.text_field :name
+
+  .field
+    = f.label :files, 'ファイル'
+    %br/
+    = f.file_field :files, multiple: true
+
+  .field
+    = f.label :password, 'パスワード'
+    %br/
+    = f.password_field :password
+
+  .field
+    = f.label :password_confirmation, 'パスワード再入力'
+    %br/
+    = f.password_field :password_confirmation
+
+  .field
+    = f.submit

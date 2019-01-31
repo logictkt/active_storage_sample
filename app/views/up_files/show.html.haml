@@ -1,0 +1,23 @@
+= link_to 'root', root_path
+
+%h1= @up_file.name
+
+- if @attention.present?
+  %p このURLと設定したパスワードを伝えよう
+  = up_file_url(@up_file)
+
+%p アップロードファイル
+%ul
+  - @up_file.files.each do |file|
+    %li
+      = file.filename
+      = image_tag(file.variant(resize: "100x100"))
+
+%p ダウンロード
+= form_with url: download_up_file_path(@up_file), local: true do |f|
+  .field
+    = f.label :password, 'パスワード'
+    %br/
+    = f.text_field :password
+  .field
+    = f.submit 'ダウンロード'
