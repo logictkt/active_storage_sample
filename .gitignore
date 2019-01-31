@@ -31,3 +31,7 @@
 /config/master.key
 
 /vendor/*
+
+/config/initializers/better_errors.rb
+
+.DS_Store
